@@ -29,6 +29,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import org.jfree.chart.*;
 import org.jfree.data.*;
 import org.jfree.data.general.DefaultPieDataset;
@@ -48,11 +49,16 @@ public class Encuesta extends javax.swing.JFrame implements Printable {
     private String image_encuesta;
     private String image_resultados;
     private String image_conclusion;
-    
+    vp vp;
+    private String image;
+    private Component[] arrayJPanel2;
+    private String image_title;
+
     public Encuesta() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        vp = new vp();
     }
 
     @SuppressWarnings("unchecked")
@@ -125,15 +131,16 @@ public class Encuesta extends javax.swing.JFrame implements Printable {
         Preg18 = new javax.swing.JLabel();
         Preg19 = new javax.swing.JLabel();
         Preg20 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         btnIngresar = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Diagnostico = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -231,6 +238,7 @@ public class Encuesta extends javax.swing.JFrame implements Printable {
 
         Preg2.setText("2. Cuenta con una inversión efectuada en  Existencias (Mercaderías)");
 
+        si1.setBackground(new java.awt.Color(255, 255, 255));
         si1.setText("si");
         si1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -254,6 +262,7 @@ public class Encuesta extends javax.swing.JFrame implements Printable {
             }
         });
 
+        si2.setBackground(new java.awt.Color(255, 255, 255));
         si2.setText("si");
         si2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -407,6 +416,7 @@ public class Encuesta extends javax.swing.JFrame implements Printable {
             }
         });
 
+        no10.setBackground(new java.awt.Color(255, 255, 255));
         no10.setText("no");
         no10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -416,6 +426,7 @@ public class Encuesta extends javax.swing.JFrame implements Printable {
 
         Preg11.setText("11. Cumple con regularidad con los pagos de sus obligaciones tributarias");
 
+        si11.setBackground(new java.awt.Color(255, 255, 255));
         si11.setText("si");
         si11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -441,6 +452,7 @@ public class Encuesta extends javax.swing.JFrame implements Printable {
             }
         });
 
+        no12.setBackground(new java.awt.Color(255, 255, 255));
         no12.setText("no");
         no12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -458,6 +470,7 @@ public class Encuesta extends javax.swing.JFrame implements Printable {
             }
         });
 
+        no13.setBackground(new java.awt.Color(255, 255, 255));
         no13.setText("no");
         no13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -493,6 +506,7 @@ public class Encuesta extends javax.swing.JFrame implements Printable {
             }
         });
 
+        no15.setBackground(new java.awt.Color(255, 255, 255));
         no15.setText("no");
         no15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -800,27 +814,6 @@ public class Encuesta extends javax.swing.JFrame implements Printable {
 
         jScrollPane2.setViewportView(jPanel1);
 
-        jLabel6.setBackground(java.awt.Color.blue);
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("FACTORES DETERMINANTES DEL ÉXITO DEL EMPRENDIMIENTO ");
-        jLabel6.setAutoscrolls(true);
-
-        jLabel7.setBackground(java.awt.Color.blue);
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("DE NUEVOS NEGOCIOS EN LIMA METROPOLITANA");
-        jLabel7.setAutoscrolls(true);
-
-        jLabel8.setBackground(java.awt.Color.blue);
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("ENCUESTA");
-        jLabel8.setAutoscrolls(true);
-
         btnIngresar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnIngresar.setText("PROCESAR");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -828,13 +821,6 @@ public class Encuesta extends javax.swing.JFrame implements Printable {
                 btnIngresarActionPerformed(evt);
             }
         });
-
-        jLabel9.setBackground(java.awt.Color.blue);
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("RESULTADOS");
-        jLabel9.setAutoscrolls(true);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("GUARDAR");
@@ -871,20 +857,72 @@ public class Encuesta extends javax.swing.JFrame implements Printable {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel6.setBackground(java.awt.Color.blue);
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("FACTORES DETERMINANTES DEL ÉXITO DEL EMPRENDIMIENTO ");
+        jLabel6.setAutoscrolls(true);
+
+        jLabel7.setBackground(java.awt.Color.blue);
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("DE NUEVOS NEGOCIOS EN LIMA METROPOLITANA");
+        jLabel7.setAutoscrolls(true);
+
+        jLabel9.setBackground(java.awt.Color.blue);
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("RESULTADOS");
+        jLabel9.setAutoscrolls(true);
+
+        jLabel8.setBackground(java.awt.Color.blue);
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("ENCUESTA");
+        jLabel8.setAutoscrolls(true);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(195, 195, 195)
                         .addComponent(btnIngresar)))
@@ -892,7 +930,6 @@ public class Encuesta extends javax.swing.JFrame implements Printable {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
@@ -900,22 +937,13 @@ public class Encuesta extends javax.swing.JFrame implements Printable {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addGap(231, 231, 231))))
+            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel8))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -935,7 +963,7 @@ public class Encuesta extends javax.swing.JFrame implements Printable {
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         ChartPanel panel;
         double tp1 = 0, tp2 = 0, tp3 = 0, tpos = 0, tn1 = 0, tn2 = 0, tn3 = 0, tneg = 0;
-
+        
         tp1 = p1 + p2 + p3 + p4 + p5 + p6;
         tn1 = 1 - tp1;
         tp2 = p7 + p8 + p9 + p10 + p11 + p12 + p13;
@@ -950,241 +978,403 @@ public class Encuesta extends javax.swing.JFrame implements Printable {
         llamar_grafico(redondear(tp3), redondear(tn3), this.Panel3, "Factor Personal 50%");
         llamar_grafico(redondear(tpos), redondear(tneg), this.Panel4, "Total Factores");
 
+        
+        llamar_grafico(redondear(tp1), redondear(tn1), vp.Panel1, "Factor Económico: 30%");
+        llamar_grafico(redondear(tp2), redondear(tn2), vp.Panel2, "Factor Regulatorio 20%");
+        llamar_grafico(redondear(tp3), redondear(tn3), vp.Panel3, "Factor Personal 50%");
+        llamar_grafico(redondear(tpos), redondear(tneg), vp.Panel4, "Total Factores");
+        
         if (tpos >= 0.75) {
             Diagnostico.setForeground(Color.green);
             Diagnostico.setText("Negocio Exitoso");
+            
+            vp.Diagnostico.setForeground(Color.green);
+            vp.Diagnostico.setText("Negocio Exitoso");
+            
         };
         if (0.75 > tpos && tpos >= 0.60) {
             Diagnostico.setForeground(Color.orange);
             Diagnostico.setText("Negocio Medianamente Exitoso");
+            
+            vp.Diagnostico.setForeground(Color.orange);
+            vp.Diagnostico.setText("Negocio Medianamente Exitoso");
         };
         if (0.60 > tpos) {
             Diagnostico.setForeground(Color.red);
             Diagnostico.setText("Negocio Deficiente");
+            
+            vp.Diagnostico.setForeground(Color.red);
+            vp.Diagnostico.setText("Negocio Deficiente");
         };
+        
     }//GEN-LAST:event_btnIngresarActionPerformed
 
-    public Double redondear(Double valor)
-    {
-        return Math.rint(valor*100)/100;
+    public Double redondear(Double valor) {
+        return Math.rint(valor * 100) / 100;
     }
-    
+
     private void no16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no16ActionPerformed
         si16.setSelected(false);
+        vp.si16.setSelected(false);
+        vp.no16.setSelected(true);
         p16 = 0;
     }//GEN-LAST:event_no16ActionPerformed
 
     private void si16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_si16ActionPerformed
         no16.setSelected(false);
+        vp.no16.setSelected(false);
+        vp.si16.setSelected(true);
         p16 = 0.2;
     }//GEN-LAST:event_si16ActionPerformed
 
     private void no15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no15ActionPerformed
         si15.setSelected(false);
+        vp.si15.setSelected(false);
+        vp.no15.setSelected(true);
         p15 = 0;
     }//GEN-LAST:event_no15ActionPerformed
 
     private void si15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_si15ActionPerformed
         no15.setSelected(false);
+        vp.no15.setSelected(false);
+        vp.si15.setSelected(true);
         p15 = 0.3;
     }//GEN-LAST:event_si15ActionPerformed
 
     private void no14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no14ActionPerformed
         si14.setSelected(false);
+        vp.si14.setSelected(false);
+        vp.no14.setSelected(true);
         p14 = 0;
     }//GEN-LAST:event_no14ActionPerformed
 
     private void si14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_si14ActionPerformed
         no14.setSelected(false);
+        vp.no14.setSelected(false);
+        vp.si14.setSelected(true);
         p14 = 0.5;
     }//GEN-LAST:event_si14ActionPerformed
 
     private void no13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no13ActionPerformed
         si13.setSelected(false);
+        vp.si13.setSelected(false);
+        vp.no13.setSelected(true);
         p13 = 0;
     }//GEN-LAST:event_no13ActionPerformed
 
     private void si13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_si13ActionPerformed
         no13.setSelected(false);
+        vp.no13.setSelected(false);
+        vp.si13.setSelected(true);
         p13 = 0.03;
     }//GEN-LAST:event_si13ActionPerformed
 
     private void no12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no12ActionPerformed
         si12.setSelected(false);
+        vp.si12.setSelected(false);
+        vp.no12.setSelected(true);
         p12 = 0;
     }//GEN-LAST:event_no12ActionPerformed
 
     private void si12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_si12ActionPerformed
         no12.setSelected(false);
+        vp.no12.setSelected(false);
+        vp.si12.setSelected(true);
         p12 = 0.3;
     }//GEN-LAST:event_si12ActionPerformed
 
     private void no11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no11ActionPerformed
         si11.setSelected(false);
+        vp.si11.setSelected(false);
+        vp.no11.setSelected(true);
         p11 = 0;
     }//GEN-LAST:event_no11ActionPerformed
 
     private void si11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_si11ActionPerformed
         no11.setSelected(false);
+        vp.no11.setSelected(false);
+        vp.si11.setSelected(true);
         p11 = 0.05;
     }//GEN-LAST:event_si11ActionPerformed
 
     private void no10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no10ActionPerformed
         si10.setSelected(false);
+        vp.si10.setSelected(false);
+        vp.no10.setSelected(true);
         p10 = 0;
     }//GEN-LAST:event_no10ActionPerformed
 
     private void si10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_si10ActionPerformed
         no10.setSelected(false);
+        vp.no10.setSelected(false);
+        vp.si10.setSelected(true);
         p10 = 0.01;
     }//GEN-LAST:event_si10ActionPerformed
 
     private void no9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no9ActionPerformed
         si9.setSelected(false);
+        vp.si9.setSelected(false);
+        vp.no9.setSelected(true);
         p9 = 0;
     }//GEN-LAST:event_no9ActionPerformed
 
     private void si9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_si9ActionPerformed
         no9.setSelected(false);
+        vp.no9.setSelected(false);
+        vp.si9.setSelected(true);
         p9 = 0.1;
     }//GEN-LAST:event_si9ActionPerformed
 
     private void no8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no8ActionPerformed
         si8.setSelected(false);
+        vp.si8.setSelected(false);
+        vp.no8.setSelected(true);
         p8 = 0;
     }//GEN-LAST:event_no8ActionPerformed
 
     private void si8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_si8ActionPerformed
         no8.setSelected(false);
+        vp.no8.setSelected(false);
+        vp.si8.setSelected(true);
         p8 = 0.01;
     }//GEN-LAST:event_si8ActionPerformed
 
     private void no7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no7ActionPerformed
         si7.setSelected(false);
+        vp.si7.setSelected(false);
+        vp.no7.setSelected(true);
         p7 = 0;
     }//GEN-LAST:event_no7ActionPerformed
 
     private void si7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_si7ActionPerformed
         no7.setSelected(false);
+        vp.no7.setSelected(false);
+        vp.si7.setSelected(true);
         p7 = 0.5;
     }//GEN-LAST:event_si7ActionPerformed
 
     private void no6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no6ActionPerformed
         si6.setSelected(false);
+        vp.si6.setSelected(false);
+        vp.no6.setSelected(true);
         p6 = 0;
     }//GEN-LAST:event_no6ActionPerformed
 
     private void si6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_si6ActionPerformed
         no6.setSelected(false);
+        vp.no6.setSelected(false);
+        vp.si6.setSelected(true);
         p6 = 0.25;
     }//GEN-LAST:event_si6ActionPerformed
 
     private void no5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no5ActionPerformed
         si5.setSelected(false);
+        vp.si5.setSelected(false);
+        vp.no5.setSelected(true);
         p5 = 0;
     }//GEN-LAST:event_no5ActionPerformed
 
     private void si5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_si5ActionPerformed
         no5.setSelected(false);
+        vp.no5.setSelected(false);
+        vp.si5.setSelected(true);
         p5 = 0.25;
     }//GEN-LAST:event_si5ActionPerformed
 
     private void no4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no4ActionPerformed
         si4.setSelected(false);
+        vp.si4.setSelected(false);
+        vp.no4.setSelected(true);
         p4 = 0;
     }//GEN-LAST:event_no4ActionPerformed
 
     private void si4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_si4ActionPerformed
         no4.setSelected(false);
+        vp.no4.setSelected(false);
+        vp.si4.setSelected(true);
         p4 = 0.25;
     }//GEN-LAST:event_si4ActionPerformed
 
     private void no3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no3ActionPerformed
         si3.setSelected(false);
+        vp.si3.setSelected(false);
+        vp.no3.setSelected(true);
         p3 = 0;
     }//GEN-LAST:event_no3ActionPerformed
 
     private void si3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_si3ActionPerformed
         no3.setSelected(false);
+        vp.no3.setSelected(false);
+        vp.si3.setSelected(true);
         p3 = 0.05;
     }//GEN-LAST:event_si3ActionPerformed
 
     private void si2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_si2ActionPerformed
         no2.setSelected(false);
+        vp.no2.setSelected(false);
+        vp.si2.setSelected(true);
         p2 = 0.1;
     }//GEN-LAST:event_si2ActionPerformed
 
     private void no2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no2ActionPerformed
         si2.setSelected(false);
+        vp.si2.setSelected(false);
+        vp.no2.setSelected(true);
         p2 = 0;
     }//GEN-LAST:event_no2ActionPerformed
 
     private void no1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no1ActionPerformed
         si1.setSelected(false);
+        vp.si1.setSelected(false);
+        vp.no1.setSelected(true);
         p1 = 0;
     }//GEN-LAST:event_no1ActionPerformed
 
     private void si1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_si1ActionPerformed
         no1.setSelected(false);
+        vp.no1.setSelected(false);
+        vp.si1.setSelected(true);
         p1 = 0.1;
     }//GEN-LAST:event_si1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 //        JOptionPane.showMessageDialog(null, "Primero guarde el archivo para imprimir");
-        Colocar_Destino();
-        this.path = this.ruta.getParent();
-        this.filename = this.ruta.getName();
-        this.image_encuesta = this.path+"\\"+this.filename+"-encuesta.jpg";
-        this.image_resultados = this.path+"\\"+this.filename+"-resultados.jpg";
-        this.image_conclusion = this.path+"\\"+this.filename+"-conclusion.jpg";
-        
-        createImage(jPanel1,this.image_encuesta);
-        createImage(jPanel2,this.image_resultados);
-        createImage(jPanel3,this.image_conclusion);
-        crear_PDF();
-        JOptionPane.showMessageDialog(null, "El archivo se ha guardado con éxito");
-        abrir_PDF();
+
+//        vista_previa();
+        if(Colocar_Destino()) {
+            this.path = this.ruta.getParent();
+            this.filename = this.ruta.getName();
+            this.image = this.path + "\\" + this.filename + ".jpg";
+
+    //        this.image_encuesta = this.path + "\\" + this.filename + "-encuesta.jpg";
+    //        this.image_resultados = this.path + "\\" + this.filename + "-resultados.jpg";
+    //        this.image_title = this.path + "\\" + this.filename + "-title.jpg";
+    //        this.image_conclusion = this.path + "\\" + this.filename + "-conclusion.jpg";
+            createImage(vp.panelmain, this.image);
+
+    //        createImage(jPanel1, this.image_encuesta);
+    //        createImage(jPanel2, this.image_resultados);
+    //        createImage(jPanel3, this.image_conclusion);
+    //        createImage(jPanel4, this.image_title);
+
+    //        combinar_imagen();
+
+    //        setDefaultCloseOperation(vp.EXIT_ON_CLOSE);
+            crear_PDF();
+//            vp.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            JOptionPane.showMessageDialog(null, "El archivo se ha guardado con éxito");
+            abrir_PDF();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public void abrir_PDF()
-    {
+    public void combinar_imagen() {
         try {
-            File myFile = new File(this.ruta.getAbsolutePath()+".pdf");
+            BufferedImage img1 = ImageIO.read(new File(this.image_title));
+            BufferedImage img2 = ImageIO.read(new File(this.image_encuesta));
+            BufferedImage img3 = ImageIO.read(new File(this.image_resultados));
+            BufferedImage img4 = ImageIO.read(new File(this.image_conclusion));
+
+//            int w = x(img1.getWidth(), img2.getWidth());
+//            int h = Math.max(img1.getHeight(), img2.getHeight());
+
+            BufferedImage combined = new BufferedImage(img1.getWidth(), img3.getHeight(), BufferedImage.TYPE_INT_ARGB);
+
+            // paint both images, preserving the alpha channels
+            Graphics g = combined.getGraphics();
+            g.drawImage(img1, 0, 0, null);
+            g.drawImage(img2, 0, 0, null);
+//            g.drawImage(img3, 0, 0, null);
+//            g.drawImage(img4, 0, 0, null);
+
+            // Save as new image
+            ImageIO.write(combined, "jpg", new File(this.path + "\\" + this.filename + "-combinacion.jpg"));
+
+        } catch (IOException ex) {
+            Logger.getLogger(Encuesta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void vista_previa() {
+        vp = new vp();
+        int numcompo = jScrollPane1.getComponentCount();
+        this.arrayJPanel2 = new Component[100];
+        for (int i = 0; i < numcompo; i++) {
+//            System.out.println(i);
+//            System.out.println(jPanel2.getComponent(i));
+            this.arrayJPanel2[i] = jPanel2.getComponent(i);
+//            vp.vpPanel2.add(jPanel2.getComponent(i));
+        }
+        for (int i = 0; i < numcompo; i++) {
+//            System.out.println(this.arrayJPanel2[i]);
+//            vp.vpPanel2.add(this.arrayJPanel2[i]);
+        }
+        jScrollPane1.removeAll();
+        jScrollPane1.repaint();
+//        System.out.println(array);
+//            vp.vpPanel1.add(jPanel1);
+//            vp.vpPanel2.add(jPanel2);
+//            vp.vpPanel3.add(Diagnostico);
+
+//        JFrame vpframe = new JFrame("Display Image");
+//        vp.getContentPane().add(vp);
+//        vp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        vp.pack();
+//        vp.setLocationRelativeTo(null);
+//        vp.setVisible(true);
+    }
+
+    public void clonar_componentes(JPanel destino, JPanel origen) {
+        int numcomponentes = origen.getComponentCount();
+        System.out.println(numcomponentes);
+        System.out.println(origen.getComponent(numcomponentes - 1));
+        for (int i = 0; i < numcomponentes; i++) {
+            destino.add(origen.getComponent(i));
+            System.out.println(i);
+        }
+    }
+
+    public void abrir_PDF() {
+        try {
+            File myFile = new File(this.ruta.getAbsolutePath() + ".pdf");
             Desktop.getDesktop().open(myFile);
         } catch (IOException ex) {
             Logger.getLogger(Encuesta.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public void crear_PDF() {
         if (this.ruta != null) {
             try {
                 Document documento = new Document();
-                FileOutputStream fos = new FileOutputStream(this.ruta+".pdf");
+                FileOutputStream fos = new FileOutputStream(this.ruta + ".pdf");
                 PdfWriter pdf = PdfWriter.getInstance(documento, fos);
                 pdf.open();
                 documento.open();
                 documento.addTitle(this.ruta.getName());
-                Image img1 = Image.getInstance(this.image_encuesta);
-                img1.scalePercent(50);
-                Image img2 = Image.getInstance(this.image_resultados);
-                img2.scalePercent(50);
-                Image img3 = Image.getInstance(this.image_conclusion);
-                img3.scalePercent(40);
-                documento.add(img1);
-                documento.add(img2);
-                documento.add(img3);
+                Image img = Image.getInstance(this.image);
+                img.scalePercent(45);
+//                Image img1 = Image.getInstance(this.image_encuesta);
+//                img1.scalePercent(50);
+//                Image img2 = Image.getInstance(this.image_resultados);
+//                img2.scalePercent(50);
+//                Image img3 = Image.getInstance(this.image_conclusion);
+//                img3.scalePercent(40);
+//                documento.add(img1);
+//                documento.add(img2);
+//                documento.add(img3);
+                documento.add(img);
                 documento.close();
                 pdf.close();
-                Files.delete(Paths.get(this.image_encuesta));
-                Files.delete(Paths.get(this.image_resultados));
-                Files.delete(Paths.get(this.image_conclusion));
+                Files.delete(Paths.get(this.image));
+//                Files.delete(Paths.get(this.image_encuesta));
+//                Files.delete(Paths.get(this.image_resultados));
+//                Files.delete(Paths.get(this.image_conclusion));
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
         }
     }
-    
+
     private void createImage(Component panel, String nombre) {
         Dimension size = panel.getSize();
         BufferedImage image = new BufferedImage(
@@ -1197,18 +1387,19 @@ public class Encuesta extends javax.swing.JFrame implements Printable {
             e.printStackTrace();
         }
     }
-    
-    public void Colocar_Destino() {
+
+    public Boolean Colocar_Destino() {
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo PDF", "pdf", "PDF");
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileFilter(filter);
-        
         int result = fileChooser.showSaveDialog(null);
         if (result == JFileChooser.APPROVE_OPTION) {
             this.ruta = fileChooser.getSelectedFile().getAbsoluteFile();
-        }
+            return true;
+        }        
+        return false;
     }
-    
+
     private void llamar_grafico(double positivos, double negativos, JPanel JPanel, String titulo) {
         DefaultPieDataset data = new DefaultPieDataset();
         data.setValue("Neg(" + negativos + ")", negativos);
@@ -1265,15 +1456,16 @@ public class Encuesta extends javax.swing.JFrame implements Printable {
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel6;
+    public javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JPanel jPanel4;
+    public javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JRadioButton no1;
     private javax.swing.JRadioButton no10;
     private javax.swing.JRadioButton no11;
